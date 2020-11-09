@@ -1,10 +1,11 @@
 /// HUST OS Lab3 Implementation in Rust
+#[allow(unused_imports)]
 use std::{
     io::{self, prelude::*, BufReader, BufWriter},
     fs::File,
     thread,
     sync::{Mutex, Arc},
-    // time::Duration,
+    time::{Instant, Duration},
 };
 fn main() -> io::Result<()>{
     println!("Welcome to hust os lab in rust");
@@ -15,7 +16,8 @@ fn main() -> io::Result<()>{
     let write_buf = Arc::clone(&buffer);
     let eof_1 = Arc::clone(&eof);
     let eof_2 = Arc::clone(&eof);
-    
+    let now = Instant::now();
+
     let reader_handle = thread::spawn(move || {
         let f_read = File::open("source.txt").unwrap();
         let mut reader = BufReader::new(f_read);
@@ -65,6 +67,6 @@ fn main() -> io::Result<()>{
 
     reader_handle.join().unwrap();
     writer_handle.join().unwrap();
-    println!("[Main_thread]exit.");
+    println!("[Main_thread]exit, cost {} micro-seconds", now.elapsed().as_micros());
     Ok(())
 }
