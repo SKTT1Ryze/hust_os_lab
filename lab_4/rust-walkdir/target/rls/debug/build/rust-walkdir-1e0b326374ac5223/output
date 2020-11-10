@@ -1,0 +1,28 @@
+TARGET = Some("x86_64-unknown-linux-gnu")
+OPT_LEVEL = Some("0")
+HOST = Some("x86_64-unknown-linux-gnu")
+CC_x86_64-unknown-linux-gnu = None
+CC_x86_64_unknown_linux_gnu = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-unknown-linux-gnu = None
+CFLAGS_x86_64_unknown_linux_gnu = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+DEBUG = Some("true")
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,mmx,sse,sse2")
+running: "cc" "-O0" "-ffunction-sections" "-fdata-sections" "-fPIC" "-g" "-fno-omit-frame-pointer" "-m64" "-Wall" "-Wextra" "-o" "/home/hustccc/hust_os_lab/lab_4/rust-walkdir/target/rls/debug/build/rust-walkdir-1e0b326374ac5223/out/src/unix_fs.o" "-c" "src/unix_fs.c"
+cargo:warning=src/unix_fs.c: In function ‘print_stat’:
+cargo:warning=src/unix_fs.c:137:9: warning: unused variable ‘_fd’ [-Wunused-variable]
+cargo:warning=  137 |     int _fd = stat(path, buf);
+cargo:warning=      |         ^~~
+exit code: 0
+AR_x86_64-unknown-linux-gnu = None
+AR_x86_64_unknown_linux_gnu = None
+HOST_AR = None
+AR = None
+running: "ar" "crs" "/home/hustccc/hust_os_lab/lab_4/rust-walkdir/target/rls/debug/build/rust-walkdir-1e0b326374ac5223/out/libunixfs.a" "/home/hustccc/hust_os_lab/lab_4/rust-walkdir/target/rls/debug/build/rust-walkdir-1e0b326374ac5223/out/src/unix_fs.o"
+exit code: 0
+cargo:rustc-link-lib=static=unixfs
+cargo:rustc-link-search=native=/home/hustccc/hust_os_lab/lab_4/rust-walkdir/target/rls/debug/build/rust-walkdir-1e0b326374ac5223/out
