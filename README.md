@@ -13,7 +13,6 @@ Type Ctrl + C to send SIGINT to the parent process.
 ```
 
 ## Lab2
-TODO  
 ```bash
 cd lab_2
 cd air_ticket
@@ -27,8 +26,15 @@ cargo run
 ```
 
 ## Lab3
-TODO  
+```bash
+cd lab_3
+cd shared_memory
+cargo run
+```
 
 ## Lab4
-TODO  
-
+```bash
+cd lab_4
+cd rust-walkdir
+cargo run
+```
