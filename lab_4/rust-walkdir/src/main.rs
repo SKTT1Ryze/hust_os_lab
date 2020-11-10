@@ -2,6 +2,7 @@
 /// 
 extern crate libc;
 use std::{fs, io, path::PathBuf};
+use std::env;
 use libc::c_char;
 use std::ffi::CString;
 
@@ -12,8 +13,11 @@ extern {
 }
 fn main() -> io::Result<()>{
     println!("Welcome to hust os lab in rust");
-    
-    let mut entries = fs::read_dir("./")?
+    let args: Vec<String> = env::args().collect();
+    if args.len() <= 1 {
+        panic!("[Panic]expect 2 argments, found 1");
+    }
+    let mut entries = fs::read_dir(args[1].as_str())?
         .map(|res| res.map(|e| e.path()))
         .collect::<Result<Vec<_>, io::Error>>()?;
 
